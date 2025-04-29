@@ -7,16 +7,16 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
 
-# Load your cleaned CSV
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r'C:\Users\admin\Music\Guvi\Power_Consumption\power_consumption_cleaned1.csv')
+    file_id = '1trgBEubuq7bKp7tmL_MufkXnG6wGuqE2'
+    url = f'https://drive.google.com/uc?id={file_id}'
+    df = pd.read_csv(url)
     df['Date'] = pd.to_datetime(df['Date'])
     df['Year'] = df['Date'].dt.year
     df['Month'] = df['Date'].dt.month
     df['Day'] = df['Date'].dt.day
     return df
-
 df = load_data()
 
 # Sidebar - Model Selector
