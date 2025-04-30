@@ -11,18 +11,19 @@ import matplotlib.pyplot as plt
 def load_data():
     file_id = '1trgBEubuq7bKp7tmL_MufkXnG6wGuqE2'
     url = f'https://drive.google.com/uc?id={file_id}'
-    
-    # Tab-separated CSV file-ஆக வாசிக்க
+
+    # Read CSV - confirmed tab-separated
     df = pd.read_csv(url, sep='\t')
-    
-    # Datetime உருவாக்க
+
+    # ✅ Convert Date + Time ➝ Datetime
     df['Datetime'] = pd.to_datetime(df['Date'] + ' ' + df['Time'], dayfirst=True)
+
+    # Extract useful features
     df['Year'] = df['Datetime'].dt.year
     df['Month'] = df['Datetime'].dt.month
     df['Day'] = df['Datetime'].dt.day
 
-    return df
-    
+    return df   
 df = load_data()
 
 # Sidebar - Model Selector
