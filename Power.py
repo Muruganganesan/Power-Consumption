@@ -13,11 +13,11 @@ def load_data():
     url = f'https://drive.google.com/uc?id={file_id}'
     df = pd.read_csv(url)
 
-    # சரியான பெயரை இங்கு update செய்யுங்கள்
-    df['Datetime'] = pd.to_datetime(df['Datetime'])  # <-- change if needed
-    df['Year'] = df['Datetime'].dt.year
-    df['Month'] = df['Datetime'].dt.month
-    df['Day'] = df['Datetime'].dt.day
+
+    df['Date'] = pd.to_datetime(df['Date'])  # <-- change if needed
+    df['Year'] = df['Date'].dt.year
+    df['Month'] = df['Date'].dt.month
+    df['Day'] = df['Date'].dt.day
     return df
 
 df = load_data()
