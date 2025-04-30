@@ -13,12 +13,16 @@ def load_data():
     url = f'https://drive.google.com/uc?id={file_id}'
     df = pd.read_csv(url)
 
+    # 'Date and Time
+    df['Datetime'] = pd.to_datetime(df['Date'] + ' ' + df['Time'], dayfirst=True)
 
-    df['Date'] = pd.to_datetime(df['Date'])  # <-- change if needed
-    df['Year'] = df['Date'].dt.year
-    df['Month'] = df['Date'].dt.month
-    df['Day'] = df['Date'].dt.day
+    # Seprate Year,Month,day
+    df['Year'] = df['Datetime'].dt.year
+    df['Month'] = df['Datetime'].dt.month
+    df['Day'] = df['Datetime'].dt.day
+
     return df
+
 
 df = load_data()
 
