@@ -13,7 +13,7 @@ def load_data():
     url = f'https://drive.google.com/uc?id={file_id}'
 
     # Read CSV - confirmed tab-separated
-    df = pd.read_csv(url, sep='\t')
+    df = pd.read_csv(url, sep='\t', encoding='utf-8', engine='python')
 
     # ✅ Convert Date + Time ➝ Datetime
     df['Date'] = pd.to_datetime(df['Date'])
