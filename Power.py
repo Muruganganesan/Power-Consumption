@@ -16,7 +16,7 @@ def load_data():
     df = pd.read_csv(url, sep='\t')
 
     # ✅ Convert Date + Time ➝ Datetime
-    df['Datetime'] = pd.to_datetime(df['Date'] + ' ' + df['Time'], dayfirst=True)
+    df['Date'] = pd.to_datetime(df['Date'])
 
     # Extract useful features
     df['Year'] = df['Datetime'].dt.year
