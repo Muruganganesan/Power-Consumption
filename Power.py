@@ -21,15 +21,15 @@ df = load_data()
 
 # Sidebar - Model Selector
 model_name = st.sidebar.selectbox(
-    "மாடலை தேர்வு செய்க",
+    "Select Your Model",
     ("Linear Regression", "Random Forest", "Gradient Boosting")
 )
 
 st.title("🏠 PowerPulse Dashboard")
-st.subheader("📊 வீட்டு மின் பயன்பாட்டை முன்னறிதல்")
+st.subheader("📊 Forecasting home electricity usage")
 
 # Show basic data info
-if st.checkbox("தரவைக் காட்டு"):
+if st.checkbox("View Data"):
     st.dataframe(df.head())
 
 # Prepare Data
@@ -53,7 +53,7 @@ rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 mae = mean_absolute_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
-st.markdown("### 📈 மதிப்பீட்டு அளவீடுகள்:")
+st.markdown("### 📈 Evaluation metrics:")
 st.write(f"**RMSE**: {rmse:.2f}")
 st.write(f"**MAE**: {mae:.2f}")
 st.write(f"**R² Score**: {r2:.3f}")
