@@ -12,11 +12,17 @@ def load_data():
     file_id = '1trgBEubuq7bKp7tmL_MufkXnG6wGuqE2'
     url = f'https://drive.google.com/uc?id={file_id}'
     df = pd.read_csv(url)
-    df['Date'] = pd.to_datetime(df['Date'])
-    df['Year'] = df['Date'].dt.year
-    df['Month'] = df['Date'].dt.month
-    df['Day'] = df['Date'].dt.day
+
+    # Columns name பார்க்க
+    st.write("Available Columns:", df.columns)
+
+    # சரியான பெயரை இங்கு update செய்யுங்கள்
+    df['Datetime'] = pd.to_datetime(df['Datetime'])  # <-- change if needed
+    df['Year'] = df['Datetime'].dt.year
+    df['Month'] = df['Datetime'].dt.month
+    df['Day'] = df['Datetime'].dt.day
     return df
+
 df = load_data()
 
 # Sidebar - Model Selector
