@@ -13,9 +13,6 @@ def load_data():
     url = f'https://drive.google.com/uc?id={file_id}'
     df = pd.read_csv(url)
 
-    # Columns name பார்க்க
-    st.write("Available Columns:", df.columns)
-
     # சரியான பெயரை இங்கு update செய்யுங்கள்
     df['Datetime'] = pd.to_datetime(df['Datetime'])  # <-- change if needed
     df['Year'] = df['Datetime'].dt.year
