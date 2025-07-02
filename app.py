@@ -8,17 +8,49 @@ st.title("PowerPulse: Household Energy Usage Forecast")
 
 # Project Overview
 st.markdown("""
-### 
+### 📘 Project Overview
+This project aims to **predict household energy consumption** using historical data. 
+
 ✅ The main goals are:
 - Enable **better energy planning** for households and providers
 - Support **cost reduction** through smart usage insights
 - Help **energy companies forecast demand** more accurately
 
 By analyzing past energy usage, this model gives actionable insights that benefit both consumers and providers.
+
+---
+
+### 🧾 Input Features Explanation
+
+1. **Hour**
+   - Represents the hour of the day from 0 to 23.
+   - Example: 21 = 9 PM, typically peak usage time in households.
+
+2. **Day of Month**
+   - The calendar day of the month (1 to 31).
+   - Some days (e.g., holidays, salary dates) may have higher consumption.
+
+3. **Weekday**
+   - Day of the week: 0 = Monday, 6 = Sunday.
+   - Weekends often have higher usage since people stay home more.
+
+4. **Global Reactive Power**
+   - Power that is stored and released by appliances (not directly consumed).
+   - Affects overall power patterns.
+
+5. **Voltage**
+   - The electric potential in volts (usually around 220V–240V).
+   - Fluctuations in voltage can impact appliance performance.
+
+6. **Global Intensity**
+   - The current drawn in amperes.
+   - Higher current usually indicates more power consumption.
+
+---
 """)
 
 # Sidebar Inputs
-st.sidebar.header("Select Input Features")
+st.sidebar.header("Enter Input Features")
 
 hour = st.sidebar.slider("Hour (0-23)", 0, 23, 18)
 day = st.sidebar.slider("Day of Month (1-31)", 1, 31, 15)
