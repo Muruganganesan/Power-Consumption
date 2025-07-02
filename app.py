@@ -8,10 +8,7 @@ st.title("PowerPulse: Household Energy Usage Forecast")
 
 # Project Overview
 st.markdown("""
-### 📘 Project Overview
-This project aims to **predict household energy consumption** using historical data. 
-
-✅ The main goals are:
+### ✅ The main goals are:
 - Enable **better energy planning** for households and providers
 - Support **cost reduction** through smart usage insights
 - Help **energy companies forecast demand** more accurately
