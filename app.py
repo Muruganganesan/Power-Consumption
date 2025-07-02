@@ -45,7 +45,7 @@ st.dataframe(input_data)
 # Load pre-trained model
 @st.cache_resource
 def load_model():
-    path = r"C:\\Users\\admin\\Music\\Guvi\\Power_Consumption\\power_model.pkl"
+    path = "power_model.pkl"
     return joblib.load(path)
 
 model = load_model()
